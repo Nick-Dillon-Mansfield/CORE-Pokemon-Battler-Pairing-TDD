@@ -65,40 +65,42 @@ describe("Trainer creation, attributes and storage", () => {
     const Nick = new Trainer("Nick");
     expect(Nick).to.be.a("object");
   });
-  it('creating a trainer gives them a blank pokemon storage, with a quantity of 0 as default', () => {
+  it("creating a trainer gives them a blank pokemon storage, with a quantity of 0 as default", () => {
     const Nick = new Trainer("Nick");
     expect(Nick.pokemon).to.eql({});
     expect(Nick.quantity).to.equal(0);
   });
   it('Trainer using catch function returns "Trainer caught ..."', () => {
     const Nick = new Trainer("Nick");
-    expect(Nick.catch("Bulbasaur")).to.equal("Nick caught a Bulbasaur! They now have 1 pokemon stored!");
-    });
-    it('catching a pokemon stores it in trainers storage', () => {
-        const Nick = new Trainer("Nick");
-        Nick.catch("Bulbasaur", "Grass");
-        Nick.catch("Charmander", "Fire");
-        expect(Nick.pokemon).to.haveOwnProperty("Bulbasaur");
-        expect(Nick.pokemon).to.haveOwnProperty("Charmander");
-    });
-    it('stored pokemon should have correct position in storage', () => {
-        const Nick = new Trainer("Nick");
-        Nick.catch("Bulbasaur", "Grass");
-        Nick.catch("Charmander", "Fire");
-        expect(Nick.pokemon.Bulbasaur.position).to.equal(1);
-        expect(Nick.pokemon.Charmander.position).to.equal(2);
-    });
+    expect(Nick.catch("Bulbasaur")).to.equal(
+      "Nick caught a Bulbasaur! They now have 1 pokemon stored!"
+    );
+  });
+  it("catching a pokemon stores it in trainers storage", () => {
+    const Nick = new Trainer("Nick");
+    Nick.catch("Bulbasaur", "Grass");
+    Nick.catch("Charmander", "Fire");
+    expect(Nick.pokemon).to.haveOwnProperty("Bulbasaur");
+    expect(Nick.pokemon).to.haveOwnProperty("Charmander");
+  });
+  it("stored pokemon should have correct position in storage", () => {
+    const Nick = new Trainer("Nick");
+    Nick.catch("Bulbasaur", "Grass");
+    Nick.catch("Charmander", "Fire");
+    expect(Nick.pokemon.Bulbasaur.position).to.equal(1);
+    expect(Nick.pokemon.Charmander.position).to.equal(2);
+  });
 });
 describe("Battle", () => {
-    it("checks battle can be created", () => {
-        const nickVSAndrew = new Battle();
-        expect(nickVSAndrew).to.be.a("object")
-    });
-    it ('a created battle has two trainer keys and their chosen pokemon as keys', () => {
-        const nickVSAndrew = new Battle("Nick", "Bulbasaur", "Andrew", "Squirtle");
-        expect(nickVSAndrew.trainerOne).to.equal("Nick");
-        expect(nickVSAndrew.pokemonOne).to.equal("Bulbasaur");
-        expect(nickVSAndrew.trainerTwo).to.equal("Andrew");
-        expect(nickVSAndrew.pokemonTwo).to.equal("Squirtle")
-    })
+  it("checks battle can be created", () => {
+    const nickVSAndrew = new Battle();
+    expect(nickVSAndrew).to.be.a("object");
+  });
+  it("a created battle has two trainer keys and their chosen pokemon as keys", () => {
+    const nickVSAndrew = new Battle("Nick", "Bulbasaur", "Andrew", "Squirtle");
+    expect(nickVSAndrew.trainerOne).to.equal("Nick");
+    expect(nickVSAndrew.pokemonOne).to.equal("Bulbasaur");
+    expect(nickVSAndrew.trainerTwo).to.equal("Andrew");
+    expect(nickVSAndrew.pokemonTwo).to.equal("Squirtle");
+  });
 });

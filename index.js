@@ -19,25 +19,27 @@ class Pokemon {
 }
 
 class Trainer {
-    constructor(name) {
-        this.name = name;
-        this.pokemon = {};
-        this.quantity = 0;
-    }
-    catch(pokemon, type, position) {
-        this.quantity++;
-        this.pokemon[pokemon] = new Pokemon(`${pokemon}`, `${type}`, this.quantity);
-        return `${this.name} caught a ${pokemon}! They now have ${this.quantity} pokemon stored!`
-    }
+  constructor(name) {
+    this.name = name;
+    this.pokemon = {};
+    this.quantity = 0;
+  }
+  catch(pokemon, type, position) {
+    this.quantity++;
+    this.pokemon[pokemon] = new Pokemon(`${pokemon}`, `${type}`, this.quantity);
+    return `${this.name} caught a ${pokemon}! They now have ${
+      this.quantity
+    } pokemon stored!`;
+  }
 }
 
 class Battle {
-    constructor(trainerOne, pokemonOne, trainerTwo, pokemonTwo) {
-        this.trainerOne = trainerOne;
-        this.pokemonOne = pokemonOne;
-        this.trainerTwo = trainerTwo;
-        this.pokemonTwo = pokemonTwo;
-    }
+  constructor(trainerOne, pokemonOne, trainerTwo, pokemonTwo) {
+    this.trainerOne = trainerOne;
+    this.pokemonOne = pokemonOne;
+    this.trainerTwo = trainerTwo;
+    this.pokemonTwo = pokemonTwo;
+  }
 }
 
 function getStrongVS(type) {
@@ -81,18 +83,9 @@ function getMove(type) {
 //  BULBASAUR = GRASS, CHARMANDER = FIRE, SQUIRTLE = WATER
 // RATATTA = NORMAL
 
-
 const Nick = new Trainer("Nick");
 
 module.exports = { Pokemon, Trainer, Battle };
-
-
-
-
-
-
-
-
 
 /*
 Finally, you will need a way to battle the pokemon.
@@ -115,12 +108,8 @@ The battle should take two trainers and the names of the pokemon they wish to ba
             let trainerFight = new Battle(trainerOne, pokemonOne, trainerTwo, pokemonTwo)
 
 
-
-
 The battle should have a fight method available.
      This should take the pokemon whose turn it is, attack the defending pokemon (deducting attacker's attack damage from the defender's hit points), and end their turn.
-
-
 
 
 The fight method should take each pokemon's strengths and weaknesses into account. 
@@ -134,3 +123,4 @@ Each attack should be followed by an attack message. The message will vary depen
 
 
 If the defending pokemon faints (depletes all hit points), the attacker wins.
+*/
